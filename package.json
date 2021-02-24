@@ -1,0 +1,20 @@
+{
+  "name": "altracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "concurrently": "^6.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "author": "",
+  "license": "ISC"
+}
