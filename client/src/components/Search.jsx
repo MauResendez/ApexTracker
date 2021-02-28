@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { Redirect } from 'react-router-dom';
 
 const Search = () => 
 {
@@ -20,6 +21,8 @@ const Search = () =>
 
     return (
         <div className="search">
+            {submitted && <Redirect to={`/profile/${platform}/${username}`}/> }
+
             <h1>Track Player Stats</h1>
 
             <form onSubmit={onSubmit}>
