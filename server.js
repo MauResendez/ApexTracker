@@ -17,19 +17,22 @@ if(process.env.NODE_ENV === 'development')
 // Routes
 app.use('/api/v2/profile', require('./routes/profile'));
 
-// Handle production
-if (process.env.NODE_ENV === 'production') 
+const port = process.env.PORT || 5000;
+
+if(process.env.NODE_ENV === 'production')
 {
-    // Set static folder
-    app.use(express.static(path.join(__dirname, 'build')));
-  
-    // Handle SPA
-    app.get('/*', (req, res) => {
+    app.use(express.static(path.join(__dirname, 'build'))); 
+
+    app.get('/', (req, res) => {
         res.sendFile(path.join(__dirname, 'build', 'index.html'));
-    });  
+    });
 }
 
-const port = process.env.PORT || 5000;
+// app.use(express.static(path.join(__dirname, 'build'))); 
+
+// app.get('/*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 
 // app.listen(5000, () => {
 //     console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`);
