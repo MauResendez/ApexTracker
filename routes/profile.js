@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fetch = require('node-fetch');
 
-router.get('/:platform/:id', async (req, res) => 
+router.get('/:platform/:username', async (req, res) => 
 {
     try 
     {
@@ -10,9 +10,9 @@ router.get('/:platform/:id', async (req, res) =>
             'TRN-Api-Key': process.env.TRACKER_API_KEY
         }    
         
-        const { platform, id } = req.params;
+        const { platform, username } = req.params;
 
-        const response = await fetch(`${process.env.TRACKER_API_URL}/profile/${platform}/${id}`, { headers: headers });
+        const response = await fetch(`${process.env.TRACKER_API_URL}/profile/${platform}/${username}`, { headers: headers });
 
         const data = await response.json();
 
